@@ -1,13 +1,13 @@
-var _ = require('lodash')
-var fs = require('fs')
+import * as fs from 'fs'
+import * as _ from 'lodash'
 
-function getFileContext(apiName) {
+function getFileContext(apiName: string) {
     return 'export class ' + apiName + 'Api {\n' +
            '\tapi1() {\n' +
            '\t}\n' +
            '}'
 }
-module.exports = function api(name) {
+export function api(name: string) {
     var camel = _.camelCase(name)
     var kebab = _.kebabCase(name) // foo-bar
     var upper = _.upperFirst(camel)

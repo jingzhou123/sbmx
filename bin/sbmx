@@ -1,12 +1,3 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var pkg = require('../package.json');
-var api = require('../lib/api');
-
-program
-  .version(pkg.version)
-  .command('api <name>')
-  .action(api);
-
-program.parse(process.argv);
+require('../lib')

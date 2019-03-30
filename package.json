@@ -7,5 +7,13 @@
     "commander": "^2.19.0",
     "lodash": "^4.17.11"
   },
-  "bin": "bin/sbmx"
+  "bin": "bin/sbmx",
+  "devDependencies": {
+    "@types/lodash": "^4.14.123",
+    "@types/node": "^11.12.2"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc --build tsconfig.json",
+    "prepublish": "npm run build"
+  }
 }
