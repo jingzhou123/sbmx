@@ -1,21 +1,6 @@
-import * as fs from 'fs'
-import * as _ from 'lodash'
+import { apiFn } from './template/api'
+import { writeTmpl } from './util';
 
-function getFileContext(apiName: string) {
-    return 'export class ' + apiName + 'Api {\n' +
-           '\tapi1() {\n' +
-           '\t}\n' +
-           '}'
-}
 export function api(name: string) {
-    var camel = _.camelCase(name)
-    var kebab = _.kebabCase(name) // foo-bar
-    var upper = _.upperFirst(camel)
-    var filePath = kebab + '-api.ts'
-    if (fs.existsSync(filePath)) {
-        console.warn('file existed')
-        process.exit(0)
-    } else {
-        fs.writeFileSync(filePath, getFileContext(upper))
-    }
+    return writeTmpl(name, '.api.ts', apiFn)
 }
