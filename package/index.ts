@@ -6,7 +6,7 @@ import { serviceFn } from './template/service';
 const pkg = require('../package.json')
 
 program
-  .version(pkg.version)
+  .version(pkg.version, '-v --version')
 
 program
   .command('api <name>')
@@ -27,5 +27,12 @@ program
   .command('service <name>')
   .description('generate service')
   .action(serviceFn)
+
+  program
+    .command('help', undefined, { isDefault: true })
+    .description('Print this help')
+    .action(function() {
+        program.outputHelp();
+    });
 
 program.parse(process.argv);
