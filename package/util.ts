@@ -10,6 +10,6 @@ export function writeTmpl(name: string, surfix: string, tmplFn: (data: any) => s
         console.warn('file existed')
         process.exit(0)
     } else {
-        fs.writeFileSync(filePath, tmplFn({ name: upper }))
+        fs.writeFileSync(filePath, tmplFn({ name: upper, kebabName: kebab }))
     }
 }
