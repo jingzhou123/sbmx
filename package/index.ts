@@ -29,10 +29,12 @@ program
   .action(serviceFn)
 
   program
-    .command('help', undefined, { isDefault: true })
+    .command('help')
     .description('Print this help')
     .action(function() {
         program.outputHelp();
     });
 
 program.parse(process.argv);
+
+program.help()
