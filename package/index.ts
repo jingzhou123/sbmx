@@ -3,6 +3,7 @@ import { api } from './api';
 import { component } from './component';
 import { store } from './store';
 import { serviceFn } from './template/service';
+import { service } from './service';
 const pkg = require('../package.json')
 
 program
@@ -26,7 +27,7 @@ program
 program
   .command('service <name>')
   .description('generate service')
-  .action(serviceFn)
+  .action(service)
 
   program
     .command('help')
@@ -36,5 +37,3 @@ program
     });
 
 program.parse(process.argv);
-
-program.help()
