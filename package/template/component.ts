@@ -7,6 +7,9 @@ export interface I${data.name}Props {
 }
 
 export class ${data.name} extends Component<I${data.name}Props> {
+    componentDidCatch(err: any) {
+        console.log('err in ${data.name} render:', err)
+    }
     render() {
         const store = this.props.store;
 
